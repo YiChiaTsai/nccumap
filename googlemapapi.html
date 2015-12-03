@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <!-- <meta http-equiv="refresh" content="5"> -->
+  <title>RichardTsai: NCCU - Campus Maps</title>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="https//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400;300'>
+  <!--Import materialize.css-->
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <!-- Material Design fonts -->
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Bootstrap Material Design -->
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.0/css/bootstrap-material-design.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.0/css/ripples.min.css"> -->
+  <!-- Compiled and minified CSS -->
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css"> -->
+
+  <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPVS-hEVThEv2Yj4oTJfWIeNNdE3TZZoI&signed_in=true"></script>
+      <!--Parameter: &v=3&amp;sensor=false&libraries=geometry,places&ext=.js -->
+  <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerwithlabel/1.1.8/src/markerwithlabel.js"></script>
+  <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/maplabel/src/maplabel-compiled.js"></script>
+  <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> -->
+  <!-- Twitter Bootstrap -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script> -->
+  <!-- Material Design for Bootstrap -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.0/js/material.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.0/js/ripples.min.js"></script> -->
+  <!-- <script>
+    $.material.init();
+    $.material.ripples();
+    $.material.input();
+    $.material.checkbox();
+    $.material.radio();
+  </script> -->
+
+  <style type="text/css">
+    /* Initial body */
+    body {
+      left: 0;
+      margin: 0;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Initial menu */
+    .menu {
+      color: #000000;
+      background: #0097A7;
+      /* #D1E0E8 background: #afdefa url('http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/black-thread.png') repeat left top;*/
+      left: -285px;  /* start off behind the scenes */
+      height: 100%;
+      position: fixed;
+      width: 285px;
+    }
+
+    /* Basic styling */
+    .jumbotron {
+      background-image: url('http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/bg.png');
+      height: 100%;
+      -webkit-background-size: cover;
+         -moz-background-size: cover;
+           -o-background-size: cover;
+              background-size: cover;
+    }
+
+    .menu form {
+      padding-top: 10px;
+      padding-right: 20px;
+      padding-bottom: 10px;
+      padding-left: 20px;
+    }
+
+    .menu ul {
+      border-top: 3px solid #636366;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu li {
+      border-bottom: 1px solid #636366;
+      font-family: 'Open Sans', sans-serif;
+      line-height: 45px;
+      padding-bottom: 3px;
+      padding-left: 20px;
+      padding-top: 3px;
+    }
+
+    .menu a {
+      color: #fff;
+      font-size: 15px;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .icon-close {
+      color: #000000;
+      background: #26C6DA; /*#9DB9C8*/
+      font-size: 18px;
+      cursor: pointer;
+      padding-left: 10px;
+      padding-top: 2px;
+    }
+
+    .icon-menu {
+      /*color: #fff;*/
+      cursor: pointer;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      /*padding-bottom: 25px;*/
+      /*padding-left: 5px;*/
+      /*padding-top: 15px;*/
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .icon-menu i {
+      margin-right: 5px;
+    }
+
+    .navbar-background {
+      /*color: #000000;*/
+      background: #26C6DA;
+      font-family: "Lucida Grande", "Arial", sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    a:hover, a:visited, a:link, a:active
+    {
+        text-decoration: none;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    #map {
+      height: 100%;
+    }
+
+    .labels {
+      color: red;
+      background-color: white;
+      font-family: "Lucida Grande", "Arial", sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      /*width: 40px;*/
+      border: 2px solid black;
+      white-space: nowrap;
+    }
+  </style>
+  <script type="text/javascript">
+    var map;
+    var marker;
+    var makersadmin = [], makersedu = [], makersdorm = [], makersservice = [], makerssport = [], makersattraction = [];
+
+    function initMap() {
+      var myLatLng = {lat: 24.986592, lng: 121.575841};
+
+      map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 17,
+        center: myLatLng,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+      });
+
+      map.data.loadGeoJson('http://cs.nccu.edu.tw/~s10117/NCCUMap/map.json');
+
+      // [START snippet]
+      // Color each letter gray. Change the color when the isColorful property
+      // is set to true.
+      map.data.setStyle(function(feature) {
+        var fColor = 'gray', sColor = 'gray', fOpacity = 1.0, sOpacity = 1.0, sWeight = 1.0;
+
+        //Generate marker label coordinately
+        // if( feature.getProperty('department') == "Administrations" ) {
+          makersadmin.push( new MarkerWithLabel({
+            position: {lat: feature.getProperty('center-lat'), lng: feature.getProperty('center-lng')},
+            map: map,
+            draggable: false,
+            raiseOnDrag: false,
+            // animation: google.maps.Animation.DROP,
+            labelContent: feature.getProperty('buildingzh'),
+            labelAnchor: new google.maps.Point(0, 0),
+            labelClass: "labels", // the CSS class for the label
+            icon: " "
+          }) );
+        // }
+        var mapLabel = new MapLabel({
+          text: feature.getProperty('buildingzh'),
+          position: new google.maps.LatLng(feature.getProperty('center-lat'), feature.getProperty('center-lng')),
+          map: map,
+          fontSize: 14,
+          align: 'center'
+          // zIndex: 1
+        });
+
+        if (feature.getProperty('isColorful')) {
+          fColor = feature.getProperty('fill-color');
+          fOpacity = feature.getProperty('fill-opacity');
+          sColor = feature.getProperty('stroke-color');
+          sOpacity = feature.getProperty('stroke-opacity');
+          sWeight = feature.getProperty('stroke-weight');
+        }
+
+        return /** @type {google.maps.Data.StyleOptions} */({
+          fillColor: fColor,
+          fillOpacity: fOpacity,
+          strokeColor: sColor,
+          strokeOpacity: sOpacity,
+          strokeWeight: sWeight
+          // zIndex: 2
+        });
+      });
+
+      // var mapLabel = new MapLabel({
+      //   text: 'RichardTsai',
+      //   position: myLatLng,
+      //   map: map,
+      //   fontSize: 35,
+      //   align: 'right'
+      // });
+
+      marker = new MarkerWithLabel({
+        position: myLatLng,
+        map: map,
+        draggable: true,
+        raiseOnDrag: true,
+        animation: google.maps.Animation.DROP,
+        labelContent: "您目前所選建築",
+        labelAnchor: new google.maps.Point(45, 0),
+        labelClass: "labels", // the CSS class for the label
+        icon: "http://maps.google.com/mapfiles/kml/paddle/blu-circle.png"
+        // http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclusterer/1.0.2/
+      });
+
+      /**
+       * addListener code block
+       * click, mouseover, mouseout, etc.
+       */
+      // google.maps.event.addListener(makersadmin, "click", function(e) {
+      //   placeMarkerAndPanTo(e.latLng, map);
+      // });
+
+      // When the user clicks, set 'isColorful', changing the color of the letters.
+      map.data.addListener('click', function(event) {
+        // event.feature.setProperty('isColorful', true);
+        placeMarkerAndPanTo(event.latLng, map);
+      });
+
+      // When the user hovers, tempt them to click by outlining the letters.
+      // Call revertStyle() to remove all overrides. This will use the style rules
+      // defined in the function passed to setStyle()
+      map.data.addListener('mouseover', function(event) {
+        map.data.revertStyle();
+        map.data.overrideStyle(event.feature, {strokeWeight: 3});
+        map.data.overrideStyle(event.feature, {fillColor: "#FF0000"});
+      });
+
+      map.data.addListener('mouseout', function(event) {
+        map.data.revertStyle();
+      });
+      // [END snippet]
+    }
+
+    function placeMarkerAndPanTo(latLng, map) {
+      marker.setMap(null);
+      marker.setPosition(latLng);
+      marker.setMap(map);
+      toggleBounce();
+
+      map.setZoom(18);
+      map.setCenter(marker.getPosition());
+      // map.panTo(latLng);
+    }
+
+    function toggleBounce() {
+      if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+      } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+    }
+
+    // document ready for a variety of events.
+    // $(document).ready(function(){
+    //
+    // });
+
+    var main = function() {
+    /* Push the body and the nav over by 285px over */
+      $('.icon-menu').click(function() {
+        $('.menu').animate({
+          left: "0px"
+        }, 200);
+
+        $('div#map').animate({
+          left: "285px"
+        }, 200);
+      });
+
+      /* Then push them back */
+      $('.icon-close').click(function() {
+        $('.menu').animate({
+          left: "-285px"
+        }, 200);
+
+        $('div#map').animate({
+          left: "0px"
+        }, 200);
+      });
+
+      $('#reload1').click(function() {
+        window.location.reload();
+      });
+      $('#reload2').click(function() {
+        window.location.reload();
+      });
+    };
+
+    $(document).ready(main);
+
+    // if (document.referrer == "http://cs.nccu.edu.tw/~s10117/NCCUMap/googlemapapi.html#")
+    //   window.location.reload();
+
+  </script>
+</head>
+
+<body onload="initMap()">
+
+    <div class="menu">
+      <!-- Menu icon -->
+      <div class="icon-close">
+        <img src="http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/close.png">
+        國立政治大學－校園地圖
+      </div>
+      <!-- Menu -->
+
+      <div class="row">
+
+        <div class="col s12">
+          <div class="row">
+            <div class="col s6">
+              <input class="with-gap" name="ModeOption" type="radio" id="ModeOptionSearch" value="search" checked="checked" />
+              <label for="ModeOptionSearch">搜尋</label>
+            </div>
+            <div class="col s6">
+              <input class="with-gap" name="ModeOption" type="radio" id="ModeOptionNavigate" value="navigate" />
+              <label for="ModeOptionNavigate">導航</label>
+            </div>
+          </div>
+        </div>
+
+        <form action="#" id="Navigate" class="col s12">
+
+        </form>
+
+  		  <form action="#" id="Search" class="col s12">
+
+          <div class="input-field">
+            <div class="row">
+              <div class="col s8">
+    		        <input name="srch-term" id="srch-term" type="text" class="validate">
+    		        <label for="srch-term"><i class="material-icons">account_balance</i> Search</label> <!-- prefix -->
+              </div>
+              <div class="col s4">
+                <span class="input-group-btn">
+                  <!-- <a type="submit" class="waves-effect waves-light btn"> -->
+                    <button type="submit" class="waves-effect waves-light btn btn-fab btn-fab-mini">
+                      <i class="material-icons">send</i>
+                    </button>
+                  <!-- </a> -->
+                </span>
+              </div>
+              <div class="col s12">
+                <span class="help-block"><code>Building you focus on</code></span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col s12">
+                <code><font size="16">探索</font></code>
+              </div>
+              <div class="col s12">
+                <input type="checkbox" class="filled-in" id="filled-in-box1" />
+                <label for="filled-in-box1">行政單位</label>
+              </div>
+              <div class="col s12">
+                <input type="checkbox" class="filled-in" id="filled-in-box2" />
+                <label for="filled-in-box2">教學單位</label>
+              </div>
+              <div class="col s12">
+                <input type="checkbox" class="filled-in" id="filled-in-box3" />
+                <label for="filled-in-box3">宿舍</label>
+              </div>
+              <div class="col s12">
+                <input type="checkbox" class="filled-in" id="filled-in-box4" />
+                <label for="filled-in-box4">服務空間</label>
+              </div>
+              <div class="col s12">
+                <input type="checkbox" class="filled-in" id="filled-in-box5" />
+                <label for="filled-in-box5">運動空間</label>
+              </div>
+              <div class="col s12">
+                <input type="checkbox" class="filled-in" id="filled-in-box6" />
+                <label for="filled-in-box6">休憩景點</label>
+              </div>
+            </div>
+  		    </div>
+
+  		  </form>
+
+
+  		</div>
+
+      <ul>
+        <li><a href="#"><i class="fa fa-home fa-fw"></i>&nbsp; Home</a></li>
+        <li><a href="#"><i class="fa fa-book fa-fw"></i>&nbsp; Library</a></li>
+        <li><a href="#"><i class="fa fa-pencil fa-fw"></i>&nbsp; Applications</a></li>
+        <li><a href="#"><i class="fa fa-cog fa-fw"></i>&nbsp; Settings</a></li>
+      </ul>
+
+    </div>
+
+    <!-- Main body -->
+    <!-- <div class="jumbotron"> -->
+
+    <div role="navigation" class="navbar-default navbar-background"> <!-- navbar -->
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="javascript:void(0)" class="navbar-brand" id="reload1">國立政治大學－校園地圖</a>
+        </div>
+        <!-- Collection of nav links, forms, and other content for toggling -->
+        <div class="navbar-collapse collapse navbar-inverse-collapse">
+
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active">
+              <a href="javascript:void(0)" class="icon-menu" data-toggle="collapse" data-target=".navbar-inverse-collapse">
+              <i class="fa fa-refresh fa-spin"></i>
+              尋找欲前往建築
+              </a>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://www.nccu.edu.tw">政大首頁</a></li>
+              <li><a href="http://i.nccu.edu.tw">愛政大</a></li>
+              <li class="dropdown">
+                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">訊息更新 <b class="caret"></b></a>
+                  <ul role="menu" class="dropdown-menu">
+                      <li><a href="javascript:void(0)">Inbox</a></li>
+                      <li><a href="javascript:void(0)">Drafts</a></li>
+                      <li><a href="javascript:void(0)">Sent Items</a></li>
+                      <li class="divider"></li>
+                      <li><a href="javascript:void(0)">Trash</a></li>
+                  </ul>
+              </li>
+              <li id="reload2"><a href="javascript:void(0)">重新載入Google Map</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+
+  <!-- Loading Google Maps Javascript API -->
+  <div id="map"></div>
+
+  <!--Import jQuery before materialize.js-->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+</body>
+</html>
