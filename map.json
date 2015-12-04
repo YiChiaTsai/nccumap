@@ -5,10 +5,10 @@
       "type": "Feature",
       "properties": {
         "isColorful": "true",
-        "stroke-color": "#3E2723",
+        "stroke-color": "#5D4037",
         "stroke-weight": 1,
         "stroke-opacity": 1,
-        "fill-color": "#5D4037",
+        "fill-color": "#795548",
         "fill-opacity": 1,
         "department": "Administrations",
         "buildingen": "Main Library",
@@ -112,10 +112,10 @@
       "type": "Feature",
       "properties": {
         "isColorful": "true",
-        "stroke-color": "#3E2723",
+        "stroke-color": "#5D4037",
         "stroke-weight": 1,
         "stroke-opacity": 1,
-        "fill-color": "#5D4037",
+        "fill-color": "#795548",
         "fill-opacity": 1,
         "department": "Administrations",
         "buildingen": "Computer Center",
@@ -136,13 +136,13 @@
       "type": "Feature",
       "properties": {
         "isColorful": "true",
-        "stroke-color": "#3E2723",
+        "stroke-color": "#5D4037",
         "stroke-weight": 1,
         "stroke-opacity": 1,
-        "fill-color": "#5D4037",
+        "fill-color": "#795548",
         "fill-opacity": 1,
         "department": "Administrations",
-        "buildingen": "Administration building",
+        "buildingen": "Administration Building",
         "buildingzh": "行政大樓",
         "center-lng": 121.575093,
         "center-lat": 24.986147
@@ -163,10 +163,10 @@
       "type": "Feature",
       "properties": {
         "isColorful": "true",
-        "stroke-color": "#3E2723",
+        "stroke-color": "#5D4037",
         "stroke-weight": 1,
         "stroke-opacity": 1,
-        "fill-color": "#5D4037",
+        "fill-color": "#795548",
         "fill-opacity": 1,
         "department": "Administrations",
         "buildingen": "Security Office",
@@ -187,10 +187,10 @@
       "type": "Feature",
       "properties": {
         "isColorful": "true",
-        "stroke-color": "#3E2723",
+        "stroke-color": "#5D4037",
         "stroke-weight": 1,
         "stroke-opacity": 1,
-        "fill-color": "#5D4037",
+        "fill-color": "#795548",
         "fill-opacity": 1,
         "department": "Administrations",
         "buildingen": "Mail Services",
@@ -211,10 +211,10 @@
       "type": "Feature",
       "properties": {
         "isColorful": "true",
-        "stroke-color": "#3E2723",
+        "stroke-color": "#5D4037",
         "stroke-weight": 1,
         "stroke-opacity": 1,
-        "fill-color": "#5D4037",
+        "fill-color": "#795548",
         "fill-opacity": 1,
         "department": "Administrations",
         "buildingen": "Health Center",
@@ -235,10 +235,10 @@
       "type": "Feature",
       "properties": {
         "isColorful": "true",
-        "stroke-color": "#3E2723",
+        "stroke-color": "#5D4037",
         "stroke-weight": 1,
         "stroke-opacity": 1,
-        "fill-color": "#5D4037",
+        "fill-color": "#795548",
         "fill-opacity": 1,
         "department": "Administrations",
         "buildingen": "Social Sciences Information Center",
@@ -265,7 +265,7 @@
         "fill-color": "#E91E63",
         "fill-opacity": 1,
         "department": "Education",
-        "buildingen": "Jing Tang building",
+        "buildingen": "Jing Tang Building",
         "buildingzh": "井塘樓",
         "center-lng": 121.578350,
         "center-lat": 24.985580
@@ -289,7 +289,55 @@
         "fill-color": "#E91E63",
         "fill-opacity": 1,
         "department": "Education",
-        "buildingen": "Xue Si building",
+        "buildingen": "Xue Si Building",
+        "buildingzh": "學思樓",
+        "center-lng": 0,
+        "center-lat": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [121.576783, 24.987314], [121.576768, 24.987242], [121.576755, 24.987245], [121.576747, 24.987215], [121.576758, 24.987214], [121.576740, 24.987133], [121.576822, 24.987119], [121.576839, 24.987196], [121.577032, 24.987159], [121.577013, 24.987085], [121.577094, 24.987071], [121.577139, 24.987248], [121.577025, 24.987269], [121.577025, 24.987279], [121.576983, 24.987290], [121.576979, 24.987280], [121.576783, 24.987314]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isColorful": "true",
+        "stroke-color": "#C2185B",
+        "stroke-weight": 1,
+        "stroke-opacity": 1,
+        "fill-color": "#E91E63",
+        "fill-opacity": 1,
+        "department": "Education",
+        "buildingen": "Yi Xian Building",
+        "buildingzh": "逸仙樓",
+        "center-lng": 0,
+        "center-lat": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [121.576764, 24.986792], [121.577019, 24.986754], [121.577039, 24.986843], [121.577074, 24.986836], [121.577089, 24.986905], [121.577058, 24.986912], [121.577063, 24.986941], [121.577000, 24.986952], [121.576991, 24.986981], [121.576933, 24.986992], [121.576974, 24.987153], [121.576957, 24.987157], [121.576959, 24.987169], [121.576916, 24.987177], [121.576913, 24.987165], [121.576899, 24.987168], [121.576865, 24.987011], [121.576799, 24.986966], [121.576788, 24.986967], [121.576775, 24.986921], [121.576756, 24.986924], [121.576741, 24.986868], [121.576785, 24.986860], [121.576782, 24.986845], [121.576770, 24.986846], [121.576764, 24.986792]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isColorful": "true",
+        "stroke-color": "#C2185B",
+        "stroke-weight": 1,
+        "stroke-opacity": 1,
+        "fill-color": "#E91E63",
+        "fill-opacity": 1,
+        "department": "Education",
+        "buildingen": "Xue Si Building",
         "buildingzh": "學思樓",
         "center-lng": 121.576944,
         "center-lat": 24.987217
@@ -313,7 +361,7 @@
         "fill-color": "#E91E63",
         "fill-opacity": 1,
         "department": "Education",
-        "buildingen": "Yi Xian building",
+        "buildingen": "Yi Xian Building",
         "buildingzh": "逸仙樓",
         "center-lng": 121.576904,
         "center-lat": 24.986857
@@ -337,7 +385,7 @@
         "fill-color": "#E91E63",
         "fill-opacity": 1,
         "department": "Education",
-        "buildingen": "Zhi Xi building",
+        "buildingen": "Zhi Xi Building",
         "buildingzh": "志希樓",
         "center-lng": 121.576238,
         "center-lat": 24.986838
@@ -361,7 +409,7 @@
         "fill-color": "#E91E63",
         "fill-opacity": 1,
         "department": "Education",
-        "buildingen": "Guo Fu building",
+        "buildingen": "Guo Fu Building",
         "buildingzh": "果夫樓",
         "center-lng": 121.575630,
         "center-lat": 24.986947
@@ -385,7 +433,7 @@
         "fill-color": "#E91E63",
         "fill-opacity": 1,
         "department": "Education",
-        "buildingen": "Information building",
+        "buildingen": "Information Building",
         "buildingzh": "資訊大樓",
         "center-lng": 121.575115,
         "center-lat": 24.987192
@@ -394,7 +442,7 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [121.576306, 24.987421], [121.576703, 24.987354], [121.576651, 24.987121], [121.576539, 24.987139], [121.576544, 24.987174], [121.576378, 24.987205], [121.576367, 24.987171], [121.576257, 24.987193], [121.576306, 24.987421]
+            [121.574892, 24.987311], [121.574889, 24.987296], [121.574874, 24.987298], [121.574852, 24.987187], [121.575034, 24.987154], [121.575029, 24.987126], [121.575170, 24.987102], [121.575185, 24.987152], [121.575201, 24.987149], [121.575196, 24.987085], [121.575203, 24.987075], [121.575224, 24.987072], [121.575249, 24.987171], [121.575269, 24.987166], [121.575242, 24.987035], [121.575338, 24.987019], [121.575349, 24.987070], [121.575366, 24.987066], [121.575401, 24.987223], [121.574892, 24.987311]
           ]
         ]
       }
@@ -409,7 +457,7 @@
         "fill-color": "#E91E63",
         "fill-opacity": 1,
         "department": "Education",
-        "buildingen": "Journalism building",
+        "buildingen": "Journalism Building",
         "buildingzh": "新聞館",
         "center-lng": 121.574287,
         "center-lat": 24.987019
@@ -418,7 +466,7 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [121.576306, 24.987421], [121.576703, 24.987354], [121.576651, 24.987121], [121.576539, 24.987139], [121.576544, 24.987174], [121.576378, 24.987205], [121.576367, 24.987171], [121.576257, 24.987193], [121.576306, 24.987421]
+            [121.574041, 24.987118], [121.574018, 24.987013], [121.574534, 24.986925], [121.574559, 24.987033], [121.574342, 24.987070], [121.574349, 24.987120], [121.574287, 24.987131], [121.574276, 24.987082], [121.574041, 24.987118]
           ]
         ]
       }
@@ -433,7 +481,7 @@
         "fill-color": "#E91E63",
         "fill-opacity": 1,
         "department": "Education",
-        "buildingen": "Da Zhi building",
+        "buildingen": "Da Zhi Building",
         "buildingzh": "大智樓",
         "center-lng": 121.573621,
         "center-lat": 24.987523
@@ -457,7 +505,31 @@
         "fill-color": "#E91E63",
         "fill-opacity": 1,
         "department": "Education",
-        "buildingen": "Da Ren building",
+        "buildingen": "Da Zhi Building",
+        "buildingzh": "大智樓",
+        "center-lng": 0,
+        "center-lat": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [121.573390, 24.987623], [121.573366, 24.987511], [121.573876, 24.987421], [121.573902, 24.987535], [121.573390, 24.987623]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isColorful": "true",
+        "stroke-color": "#C2185B",
+        "stroke-weight": 1,
+        "stroke-opacity": 1,
+        "fill-color": "#E91E63",
+        "fill-opacity": 1,
+        "department": "Education",
+        "buildingen": "Da Ren Building",
         "buildingzh": "大仁樓",
         "center-lng": 121.573576,
         "center-lat": 24.987275
@@ -481,7 +553,7 @@
         "fill-color": "#E91E63",
         "fill-opacity": 1,
         "department": "Education",
-        "buildingen": "Da Yong building",
+        "buildingen": "Da Yong Building",
         "buildingzh": "大勇樓",
         "center-lng": 121.573665,
         "center-lat": 24.986758
@@ -490,7 +562,7 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [121.576306, 24.987421], [121.576703, 24.987354], [121.576651, 24.987121], [121.576539, 24.987139], [121.576544, 24.987174], [121.576378, 24.987205], [121.576367, 24.987171], [121.576257, 24.987193], [121.576306, 24.987421]
+            [121.573237, 24.986897], [121.573200, 24.986740], [121.573237, 24.986735], [121.573251, 24.986784], [121.573444, 24.986748], [121.573432, 24.986695], [121.573475, 24.986688], [121.573486, 24.986739], [121.573833, 24.986674], [121.573823, 24.986622], [121.573864, 24.986612], [121.573879, 24.986662], [121.574066, 24.986629], [121.574056, 24.986576], [121.574095, 24.986568], [121.574130, 24.986735], [121.573237, 24.986897]
           ]
         ]
       }
@@ -505,7 +577,7 @@
         "fill-color": "#E91E63",
         "fill-opacity": 1,
         "department": "Education",
-        "buildingen": "Research building",
+        "buildingen": "Research Building",
         "buildingzh": "研究大樓",
         "center-lng": 121.576481,
         "center-lat": 24.987275
@@ -529,10 +601,85 @@
       "type": "Feature",
       "properties": {
         "isColorful": "true",
-        "stroke-color": "#1B5E20",
+        "stroke-color": "#C2185B",
         "stroke-weight": 1,
         "stroke-opacity": 1,
-        "fill-color": "#388E3C",
+        "fill-color": "#E91E63",
+        "fill-opacity": 1,
+        "department": "Education",
+        "buildingen": "College of Commerce",
+        "buildingzh": "商學院",
+        "center-lng": 0,
+        "center-lat": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [121.576306, 24.987421], [121.576703, 24.987354], [121.576651, 24.987121], [121.576539, 24.987139], [121.576544, 24.987174], [121.576378, 24.987205], [121.576367, 24.987171], [121.576257, 24.987193], [121.576306, 24.987421]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isColorful": "true",
+        "stroke-color": "#C2185B",
+        "stroke-weight": 1,
+        "stroke-opacity": 1,
+        "fill-color": "#E91E63",
+        "fill-opacity": 1,
+        "department": "Education",
+        "buildingen": "General Building of Colleges",
+        "buildingzh": "綜合院館",
+        "center-lng": 0,
+        "center-lat": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [121.573517, 24.986616], [121.573442, 24.986282], [121.573385, 24.986293], [121.573344, 24.986270], [121.573321, 24.986179], [121.573329, 24.986174], [121.573320, 24.986142], [121.573341, 24.986121], [121.573373, 24.986115], [121.573368, 24.986056], [121.573324, 24.986059], [121.573344, 24.986026], [121.573383, 24.986022], [121.573345, 24.985773], [121.573728, 24.985702], [121.573804, 24.986047], [121.573685, 24.986070], [121.573707, 24.986169], [121.573683, 24.986228], [121.573609, 24.986313], [121.573819, 24.986437], [121.573884, 24.986425], [121.573909, 24.986546], [121.573517, 24.986616]
+          ],
+          [
+            [121.573435, 24.986165], [121.573427, 24.986101], [121.573443, 24.986054], [121.573564, 24.986108], [121.573582, 24.986138], [121.573435, 24.986165]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isColorful": "true",
+        "stroke-color": "#388E3C",
+        "stroke-weight": 1,
+        "stroke-opacity": 1,
+        "fill-color": "#4CAF50",
+        "fill-opacity": 1,
+        "department": "Dormitories",
+        "buildingen": "Zhuang Jing Dormitory No.1",
+        "buildingzh": "莊敬一舍",
+        "center-lng": 0,
+        "center-lat": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [121.577174, 24.986535], [121.577506, 24.986473], [121.577521, 24.986535], [121.577510, 24.986537], [121.577510, 24.986550], [121.577525, 24.986548], [121.577534, 24.986605], [121.577458, 24.986621], [121.577518, 24.986890], [121.577449, 24.986972], [121.577471, 24.986983], [121.577451, 24.987013], [121.577416, 24.986997], [121.577386, 24.987034], [121.577417, 24.987178], [121.577309, 24.987199], [121.577269, 24.987016], [121.577365, 24.986899], [121.577309, 24.986645], [121.577202, 24.986664], [121.577193, 24.986616], [121.577201, 24.986612], [121.577195, 24.986591], [121.577183, 24.986592], [121.577174, 24.986535]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isColorful": "true",
+        "stroke-color": "#388E3C",
+        "stroke-weight": 1,
+        "stroke-opacity": 1,
+        "fill-color": "#4CAF50",
         "fill-opacity": 1,
         "department": "Dormitories",
         "buildingen": "Zhuang Jing Dormitory No.2",
@@ -553,10 +700,130 @@
       "type": "Feature",
       "properties": {
         "isColorful": "true",
-        "stroke-color": "#311B92",
+        "stroke-color": "#388E3C",
         "stroke-weight": 1,
         "stroke-opacity": 1,
-        "fill-color": "#512DA8",
+        "fill-color": "#4CAF50",
+        "fill-opacity": 1,
+        "department": "Dormitories",
+        "buildingen": "Zhuang Jing Dormitory No.3",
+        "buildingzh": "莊敬三舍",
+        "center-lng": 0,
+        "center-lat": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [121.577846, 24.987154], [121.577809, 24.987013], [121.577826, 24.987011], [121.577805, 24.986937], [121.577850, 24.986927], [121.577856, 24.986945], [121.577944, 24.986928], [121.577964, 24.986985], [121.578113, 24.986953], [121.578149, 24.987086], [121.577846, 24.987154]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isColorful": "true",
+        "stroke-color": "#388E3C",
+        "stroke-weight": 1,
+        "stroke-opacity": 1,
+        "fill-color": "#4CAF50",
+        "fill-opacity": 1,
+        "department": "Dormitories",
+        "buildingen": "Zhuang Jing Dormitory No.4~8",
+        "buildingzh": "莊敬外舍 (4~8)",
+        "center-lng": 0,
+        "center-lat": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [121.577587, 24.988624], [121.577506, 24.988637], [121.577499, 24.988611], [121.577300, 24.988643], [121.577292, 24.988625], [121.577223, 24.988637], [121.577200, 24.988531], [121.576962, 24.988566], [121.576960, 24.988557], [121.576904, 24.988568], [121.576895, 24.988524], [121.576873, 24.988528], [121.576863, 24.988482], [121.577141, 24.988437], [121.577127, 24.988358], [121.577147, 24.988352], [121.577139, 24.988313], [121.576870, 24.988353], [121.576863, 24.988316], [121.576843, 24.988321], [121.576836, 24.988302], [121.576796, 24.988311], [121.576787, 24.988263], [121.577096, 24.988212], [121.577086, 24.988157], [121.577066, 24.988140], [121.577044, 24.988143], [121.577035, 24.988112], [121.576992, 24.988117], [121.576996, 24.988136], [121.576745, 24.988176], [121.576732, 24.988111], [121.576765, 24.988106], [121.576759, 24.988075], [121.576940, 24.988043], [121.576936, 24.988017], [121.577467, 24.987930], [121.577484, 24.988031], [121.577143, 24.988088], [121.577163, 24.988202], [121.577484, 24.988149], [121.577496, 24.988209], [121.577470, 24.988214], [121.577475, 24.988252], [121.577164, 24.988302], [121.577175, 24.988352], [121.577453, 24.988308], [121.577461, 24.988354], [121.577437, 24.988358], [121.577448, 24.988416], [121.577236, 24.988452], [121.577252, 24.988539], [121.577492, 24.988504], [121.577499, 24.988545], [121.577550, 24.988536], [121.577557, 24.988572], [121.577578, 24.988570], [121.577587, 24.988624]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isColorful": "true",
+        "stroke-color": "#388E3C",
+        "stroke-weight": 1,
+        "stroke-opacity": 1,
+        "fill-color": "#4CAF50",
+        "fill-opacity": 1,
+        "department": "Dormitories",
+        "buildingen": "Zhuang Jing Dormitory No.9",
+        "buildingzh": "莊敬九舍",
+        "center-lng": 0,
+        "center-lat": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [121.578076, 24.986565], [121.578049, 24.986425], [121.578344, 24.986378], [121.578335, 24.986329], [121.578676, 24.986271], [121.578688, 24.986339], [121.578481, 24.986376], [121.578490, 24.986425], [121.578331, 24.986455], [121.578346, 24.986518], [121.578686, 24.986465], [121.578709, 24.986573], [121.578420, 24.986622], [121.578429, 24.986668], [121.578140, 24.986718], [121.578119, 24.986606], [121.578280, 24.986580], [121.578274, 24.986532], [121.578076, 24.986565]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isColorful": "true",
+        "stroke-color": "#388E3C",
+        "stroke-weight": 1,
+        "stroke-opacity": 1,
+        "fill-color": "#4CAF50",
+        "fill-opacity": 1,
+        "department": "Dormitories",
+        "buildingen": "Mei Yuan Residence Hall",
+        "buildingzh": "玫苑",
+        "center-lng": 0,
+        "center-lat": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [121.574332, 24.987666], [121.574327, 24.987649], [121.574295, 24.987652], [121.574289, 24.987633], [121.574258, 24.987640], [121.574254, 24.987620], [121.574220, 24.987623], [121.574216, 24.987604], [121.574182, 24.987609], [121.574178, 24.987585], [121.574153, 24.987590], [121.574155, 24.987599], [121.574114, 24.987606], [121.574112, 24.987592], [121.574078, 24.987596], [121.574074, 24.987582], [121.574040, 24.987589], [121.574028, 24.987528], [121.574061, 24.987524], [121.574052, 24.987475], [121.574056, 24.987462], [121.574090, 24.987457], [121.574094, 24.987468], [121.574129, 24.987461], [121.574133, 24.987491], [121.574197, 24.987480], [121.574202, 24.987497], [121.574235, 24.987491], [121.574242, 24.987513], [121.574273, 24.987507], [121.574275, 24.987529], [121.574311, 24.987524], [121.574312, 24.987541], [121.574348, 24.987536], [121.574372, 24.987661], [121.574332, 24.987666]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isColorful": "true",
+        "stroke-color": "#512DA8",
+        "stroke-weight": 1,
+        "stroke-opacity": 1,
+        "fill-color": "#673AB7",
+        "fill-opacity": 1,
+        "department": "Services",
+        "buildingen": "Qi Xian Building",
+        "buildingzh": "憩賢樓",
+        "center-lng": 0,
+        "center-lat": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [121.577099, 24.986099], [121.577532, 24.986013], [121.577562, 24.986149], [121.577130, 24.986232], [121.577099, 24.986099]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isColorful": "true",
+        "stroke-color": "#512DA8",
+        "stroke-weight": 1,
+        "stroke-opacity": 1,
+        "fill-color": "#673AB7",
         "fill-opacity": 1,
         "department": "Services",
         "buildingen": "Alumni Center",
@@ -577,10 +844,34 @@
       "type": "Feature",
       "properties": {
         "isColorful": "true",
-        "stroke-color": "#311B92",
+        "stroke-color": "#512DA8",
         "stroke-weight": 1,
         "stroke-opacity": 1,
-        "fill-color": "#512DA8",
+        "fill-color": "#673AB7",
+        "fill-opacity": 1,
+        "department": "Services",
+        "buildingen": "Feng Yu Building",
+        "buildingzh": "風雩樓",
+        "center-lng": 0,
+        "center-lat": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [121.575493, 24.985693], [121.575753, 24.985649], [121.575784, 24.985813], [121.575868, 24.985800], [121.575894, 24.985927], [121.575552, 24.985984], [121.575544, 24.985946], [121.575555, 24.985944], [121.575549, 24.985918], [121.575539, 24.985920], [121.575493, 24.985693]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isColorful": "true",
+        "stroke-color": "#512DA8",
+        "stroke-weight": 1,
+        "stroke-opacity": 1,
+        "fill-color": "#673AB7",
         "fill-opacity": 1,
         "department": "Services",
         "buildingen": "Si Wei Hall",
@@ -593,6 +884,108 @@
         "coordinates": [
           [
             [121.575708, 24.986404], [121.575848, 24.986380], [121.575844, 24.986355], [121.575905, 24.986340], [121.575826, 24.985935], [121.575550, 24.985982], [121.575624, 24.986354], [121.575638, 24.986351], [121.575641, 24.986383], [121.575688, 24.986376], [121.575683, 24.986342], [121.575698, 24.986340], [121.575708, 24.986404]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isColorful": "true",
+        "stroke-color": "#512DA8",
+        "stroke-weight": 1,
+        "stroke-opacity": 1,
+        "fill-color": "#673AB7",
+        "fill-opacity": 1,
+        "department": "Services",
+        "buildingen": "Student Club Center",
+        "buildingzh": "樂活館",
+        "center-lng": 0,
+        "center-lat": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [121.575256, 24.987459], [121.575243, 24.987413], [121.575295, 24.987402], [121.575288, 24.987368], [121.575595, 24.987315], [121.575610, 24.987397], [121.575256, 24.987459]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isColorful": "true",
+        "stroke-color": "#1976D2",
+        "stroke-weight": 1,
+        "stroke-opacity": 1,
+        "fill-color": "#2196F3",
+        "fill-opacity": 1,
+        "department": "Sports",
+        "buildingen": "Gymnasium",
+        "buildingzh": "體育館",
+        "center-lng": 0,
+        "center-lat": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [121.573332, 24.985260], [121.573405, 24.985118], [121.573298, 24.985068], [121.573410, 24.984844], [121.573410, 24.984844], [121.573495, 24.984631], [121.573509, 24.984636], [121.573518, 24.984626], [121.573625, 24.984668], [121.573695, 24.984528], [121.574134, 24.984706], [121.574057, 24.984852], [121.574157, 24.984895], [121.573940, 24.985332], [121.573841, 24.985295], [121.573768, 24.985442], [121.573332, 24.985260]
+          ],
+          [
+            [121.573468, 24.985262], [121.573519, 24.985161], [121.573727, 24.985244], [121.573674, 24.985347], [121.573468, 24.985262]
+          ],
+          [
+            [121.573741, 24.984713], [121.573778, 24.984636], [121.573993, 24.984724], [121.573953, 24.984801], [121.573741, 24.984713]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isColorful": "true",
+        "stroke-color": "#1976D2",
+        "stroke-weight": 1,
+        "stroke-opacity": 1,
+        "fill-color": "#2196F3",
+        "fill-opacity": 1,
+        "department": "Sports",
+        "buildingen": "Swimming Pool",
+        "buildingzh": "游泳館",
+        "center-lng": 0,
+        "center-lat": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [121.577290, 24.985511], [121.577239, 24.985261], [121.577283, 24.985235], [121.577781, 24.985146], [121.577839, 24.985162], [121.577848, 24.985202], [121.577874, 24.985199], [121.577890, 24.985275], [121.577868, 24.985280], [121.577893, 24.985400], [121.577856, 24.985410], [121.577866, 24.985469], [121.577671, 24.985503], [121.577679, 24.985536], [121.577554, 24.985559], [121.577547, 24.985535], [121.577504, 24.985544], [121.577507, 24.985560], [121.577400, 24.985582], [121.577396, 24.985552], [121.577361, 24.985557], [121.577346, 24.985500], [121.577290, 24.985511]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "isColorful": "true",
+        "stroke-color": "#E64A19",
+        "stroke-weight": 1,
+        "stroke-opacity": 1,
+        "fill-color": "#F44336",
+        "fill-opacity": 1,
+        "department": "Attractions",
+        "buildingen": "Ba Jiao Pavillion",
+        "buildingzh": "八角亭",
+        "center-lng": 0,
+        "center-lat": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [121.575108, 24.985519], [121.575083, 24.985411], [121.575206, 24.985390], [121.575229, 24.985494], [121.575108, 24.985519]
           ]
         ]
       }

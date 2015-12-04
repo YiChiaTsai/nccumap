@@ -8,7 +8,7 @@
   <!-- Bootstrap -->
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" type="text/css" href="https//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href='http://fonts.googleapis.com/css?family=Open+Sans:400;300'>
   <!--Import materialize.css-->
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
@@ -55,13 +55,20 @@
 
     /* Initial menu */
     .menu {
-      color: #000000;
-      background: #0097A7;
+      /*color: #424242;#9e9e9e*/
+      background: #ffffff;
       /* #D1E0E8 background: #afdefa url('http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/black-thread.png') repeat left top;*/
-      left: -285px;  /* start off behind the scenes */
       height: 100%;
-      position: fixed;
       width: 285px;
+      left: -285px;  /* start off behind the scenes */
+      position: fixed;
+    }
+
+    .radio-custom label {
+      color: #424242;
+    }
+    .input-field-custom label {
+      color: #424242;
     }
 
     /* Basic styling */
@@ -81,7 +88,7 @@
       padding-left: 20px;
     }
 
-    .menu ul {
+    /*.menu ul {
       border-top: 3px solid #636366;
       list-style: none;
       margin: 0;
@@ -102,39 +109,41 @@
       font-size: 15px;
       text-decoration: none;
       text-transform: uppercase;
-    }
+    }*/
 
     .icon-close {
-      color: #000000;
-      background: #26C6DA; /*#9DB9C8*/
+      color: #ffffff;
+      background: #0097A7; /*#9DB9C8*/
       font-size: 18px;
       cursor: pointer;
       padding-left: 10px;
-      padding-top: 2px;
+      padding-top: 6px;
     }
 
     .icon-menu {
-      /*color: #fff;*/
-      cursor: pointer;
-      font-family: 'Open Sans', sans-serif;
       font-size: 16px;
-      /*padding-bottom: 25px;*/
-      /*padding-left: 5px;*/
-      /*padding-top: 15px;*/
-      text-decoration: none;
-      text-transform: uppercase;
     }
 
     .icon-menu i {
       margin-right: 5px;
     }
 
-    .navbar-background {
-      /*color: #000000;*/
-      background: #26C6DA;
+    .navbar-custom {
+      color: #0097A7;
+      background: #0097A7;
       font-family: "Lucida Grande", "Arial", sans-serif;
       font-size: 14px;
       font-weight: bold;
+    }
+    .navbar-custom .navbar-brand {
+      color: #ffffff;
+      float: right;
+    }
+    .navbar-custom .navbar-nav>li>a {
+      color: #ffffff;
+    }
+    .navbar-img {
+      margin: 0px 0px 0px 25px;
     }
 
     a:hover, a:visited, a:link, a:active
@@ -177,7 +186,7 @@
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
 
-      map.data.loadGeoJson('http://yichiatsai.github.io/nccumap/map.json');
+      map.data.loadGeoJson('http://cs.nccu.edu.tw/~s10117/nccumap/map.json');
 
       // [START snippet]
       // Color each letter gray. Change the color when the isColorful property
@@ -187,26 +196,26 @@
 
         //Generate marker label coordinately
         // if( feature.getProperty('department') == "Administrations" ) {
-          makersadmin.push( new MarkerWithLabel({
-            position: {lat: feature.getProperty('center-lat'), lng: feature.getProperty('center-lng')},
-            map: map,
-            draggable: false,
-            raiseOnDrag: false,
-            // animation: google.maps.Animation.DROP,
-            labelContent: feature.getProperty('buildingzh'),
-            labelAnchor: new google.maps.Point(0, 0),
-            labelClass: "labels", // the CSS class for the label
-            icon: " "
-          }) );
-        // }
-        var mapLabel = new MapLabel({
-          text: feature.getProperty('buildingzh'),
-          position: new google.maps.LatLng(feature.getProperty('center-lat'), feature.getProperty('center-lng')),
-          map: map,
-          fontSize: 14,
-          align: 'center'
-          // zIndex: 1
-        });
+        //   makersadmin.push( new MarkerWithLabel({
+        //     position: {lat: feature.getProperty('center-lat'), lng: feature.getProperty('center-lng')},
+        //     map: map,
+        //     draggable: false,
+        //     raiseOnDrag: false,
+        //     // animation: google.maps.Animation.DROP,
+        //     labelContent: feature.getProperty('buildingzh'),
+        //     labelAnchor: new google.maps.Point(0, 0),
+        //     labelClass: "labels", // the CSS class for the label
+        //     icon: " "
+        //   }) );
+        // // }
+        // var mapLabel = new MapLabel({
+        //   text: feature.getProperty('buildingzh'),
+        //   position: new google.maps.LatLng(feature.getProperty('center-lat'), feature.getProperty('center-lng')),
+        //   map: map,
+        //   fontSize: 14,
+        //   align: 'center'
+        //   // zIndex: 1
+        // });
 
         if (feature.getProperty('isColorful')) {
           fColor = feature.getProperty('fill-color');
@@ -351,7 +360,7 @@
 
       <div class="row">
 
-        <div class="col s12">
+        <div class="col s12 radio-custom">
           <div class="row">
             <div class="col s6">
               <input class="with-gap" name="ModeOption" type="radio" id="ModeOptionSearch" value="search" checked="checked" />
@@ -370,11 +379,11 @@
 
   		  <form action="#" id="Search" class="col s12">
 
-          <div class="input-field">
+          <div class="input-field input-field-custom">
             <div class="row">
               <div class="col s8">
     		        <input name="srch-term" id="srch-term" type="text" class="validate">
-    		        <label for="srch-term"><i class="material-icons">account_balance</i> Search</label> <!-- prefix -->
+    		        <label for="srch-term"><i style="color:red;" class="material-icons">account_balance</i> Search</label> <!-- prefix -->
               </div>
               <div class="col s4">
                 <span class="input-group-btn">
@@ -396,27 +405,27 @@
               </div>
               <div class="col s12">
                 <input type="checkbox" class="filled-in" id="filled-in-box1" />
-                <label for="filled-in-box1">行政單位</label>
+                <label for="filled-in-box1"><i style="color:#795548;" class="material-icons">queue_play_next</i> 行政單位</label>
               </div>
               <div class="col s12">
                 <input type="checkbox" class="filled-in" id="filled-in-box2" />
-                <label for="filled-in-box2">教學單位</label>
+                <label for="filled-in-box2"><i style="color:#E91E63;" class="material-icons">local_library</i> 教學單位</label>
               </div>
               <div class="col s12">
                 <input type="checkbox" class="filled-in" id="filled-in-box3" />
-                <label for="filled-in-box3">宿舍</label>
+                <label for="filled-in-box3"><i style="color:#4CAF50;" class="material-icons">home</i> 宿舍</label>
               </div>
               <div class="col s12">
                 <input type="checkbox" class="filled-in" id="filled-in-box4" />
-                <label for="filled-in-box4">服務空間</label>
+                <label for="filled-in-box4"><i style="color:#673AB7;" class="material-icons">pan_tool</i> 服務空間</label>
               </div>
               <div class="col s12">
                 <input type="checkbox" class="filled-in" id="filled-in-box5" />
-                <label for="filled-in-box5">運動空間</label>
+                <label for="filled-in-box5"><i style="color:#2196F3;" class="material-icons">directions_bike</i> 運動空間</label>
               </div>
               <div class="col s12">
                 <input type="checkbox" class="filled-in" id="filled-in-box6" />
-                <label for="filled-in-box6">休憩景點</label>
+                <label for="filled-in-box6"><i style="color:#F44336;" class="material-icons">directions_run</i> 休憩景點</label>
               </div>
             </div>
   		    </div>
@@ -438,7 +447,7 @@
     <!-- Main body -->
     <!-- <div class="jumbotron"> -->
 
-    <div role="navigation" class="navbar-default navbar-background"> <!-- navbar -->
+    <div role="navigation" class="navbar-default navbar-custom"> <!-- navbar -->
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -448,6 +457,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+          <a href="javascript:void(0)">
+            <img class="navbar-img" src="img/applogo.png" height="54" width="54">
+          </a>
           <a href="javascript:void(0)" class="navbar-brand" id="reload1">國立政治大學－校園地圖</a>
         </div>
         <!-- Collection of nav links, forms, and other content for toggling -->
