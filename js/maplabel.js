@@ -114,10 +114,9 @@ MapLabel.prototype.onAdd = function() {
   ctx.textBaseline = 'top';
 
   this.drawCanvas_();
-
   var panes = this.getPanes();
   if (panes) {
-    panes.mapPane.appendChild(canvas);
+    panes.overlayImage.appendChild(canvas);
   }
 };
 MapLabel.prototype['onAdd'] = MapLabel.prototype.onAdd;
@@ -164,6 +163,9 @@ MapLabel.prototype.draw = function() {
 
   style['top'] = pos.y + 'px';
   style['left'] = pos.x + 'px';
+  // style.width = '100px';
+  // style.height = '30px';
+
 
   style['visibility'] = this.getVisible_();
 };
