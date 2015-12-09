@@ -25,7 +25,7 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPVS-hEVThEv2Yj4oTJfWIeNNdE3TZZoI&signed_in=true"></script>
       <!--Parameter: &v=3&amp;sensor=false&libraries=geometry,places&ext=.js -->
   <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerwithlabel/1.1.8/src/markerwithlabel.js"></script>
-  <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/maplabel/src/maplabel-compiled.js"></script>
+  <script type="text/javascript" src="./js/maplabel.js"></script>
   <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -55,20 +55,30 @@
 
     /* Initial menu */
     .menu {
-      /*color: #424242;#9e9e9e*/
       background: #ffffff;
       /* #D1E0E8 background: #afdefa url('http://s3.amazonaws.com/codecademy-content/courses/ltp2/img/uber/black-thread.png') repeat left top;*/
       height: 100%;
       width: 285px;
       left: -285px;  /* start off behind the scenes */
-      position: fixed;
+      position: absolute;
+      overflow: -moz-scrollbars-vertical;
+      overflow-y: scroll;
     }
 
+    .title-custom {
+      margin: 10px 0px 15px 0px;
+    }
+
+    .radio-custom {
+
+    }
     .radio-custom label {
       color: #424242;
     }
     .input-field-custom label {
       color: #424242;
+      font-size: 16px;
+      margin: 0px 0px 20px 5px;
     }
 
     /* Basic styling */
@@ -115,6 +125,7 @@
       color: #ffffff;
       background: #0097A7; /*#9DB9C8*/
       font-size: 18px;
+      font-weight: bold;
       cursor: pointer;
       padding-left: 10px;
       padding-top: 6px;
@@ -156,7 +167,7 @@
       margin: 0;
       padding: 0;
     }
-    #map {
+    div#map {
       height: 100%;
     }
 
@@ -186,7 +197,7 @@
         mapTypeId: google.maps.MapTypeId.ROADMAP
       });
 
-      map.data.loadGeoJson('http://yichiatsai.github.io/nccumap/map.json');
+      map.data.loadGeoJson('http://cs.nccu.edu.tw/~s10117/nccumap/map.json');
 
       // [START snippet]
       // Color each letter gray. Change the color when the isColorful property
@@ -195,27 +206,27 @@
         var fColor = 'gray', sColor = 'gray', fOpacity = 1.0, sOpacity = 1.0, sWeight = 1.0;
 
         //Generate marker label coordinately
-        // if( feature.getProperty('department') == "Administrations" ) {
-        //   makersadmin.push( new MarkerWithLabel({
-        //     position: {lat: feature.getProperty('center-lat'), lng: feature.getProperty('center-lng')},
-        //     map: map,
-        //     draggable: false,
-        //     raiseOnDrag: false,
-        //     // animation: google.maps.Animation.DROP,
-        //     labelContent: feature.getProperty('buildingzh'),
-        //     labelAnchor: new google.maps.Point(0, 0),
-        //     labelClass: "labels", // the CSS class for the label
-        //     icon: " "
-        //   }) );
-        // // }
-        // var mapLabel = new MapLabel({
-        //   text: feature.getProperty('buildingzh'),
-        //   position: new google.maps.LatLng(feature.getProperty('center-lat'), feature.getProperty('center-lng')),
-        //   map: map,
-        //   fontSize: 14,
-        //   align: 'center'
-        //   // zIndex: 1
-        // });
+        if( feature.getProperty('department') == "Administrations" ) {
+          makersadmin.push( new MarkerWithLabel({
+            position: {lat: feature.getProperty('center-lat'), lng: feature.getProperty('center-lng')},
+            map: map,
+            draggable: false,
+            raiseOnDrag: false,
+            // animation: google.maps.Animation.DROP,
+            labelContent: feature.getProperty('buildingzh'),
+            labelAnchor: new google.maps.Point(0, 0),
+            labelClass: "labels", // the CSS class for the label
+            icon: " "
+          }) );
+        }
+        var mapLabel = new MapLabel({
+          text: feature.getProperty('buildingzh'),
+          position: new google.maps.LatLng(feature.getProperty('center-lat'), feature.getProperty('center-lng')),
+          map: map,
+          fontSize: 14,
+          align: 'center'
+          // zIndex: 1
+        });
 
         if (feature.getProperty('isColorful')) {
           fColor = feature.getProperty('fill-color');
@@ -310,6 +321,24 @@
     // });
 
     var main = function() {
+      $('#Navigate').hide();
+
+      if( $('#ModeOptionSearch').prop("checked") == true ) {
+        $('#Search').show();
+        $('#Navigate').hide();
+      }
+      if( $('#ModeOptionNavigate').prop("checked") == true ) {
+        $('#Search').hide();
+        $('#Navigate').show();
+      }
+      // $('#ModeOptionSearch').click(function() {
+      //   $('#Search').show();
+      //   $('#Navigate').hide();
+      // }
+      // $('#ModeOptionNavigate').click(function() {
+      //   $('#Search').hide();
+      //   $('#Navigate').show();
+      // }
     /* Push the body and the nav over by 285px over */
       $('.icon-menu').click(function() {
         $('.menu').animate({
@@ -362,70 +391,124 @@
 
         <div class="col s12 radio-custom">
           <div class="row">
+            <div class="col s12">
+              <a class="title-custom waves-effect waves-light btn btn-fab btn-fab-mini red"><i class="fa fa-cog fa-spin"></i><font size="4px">  模式</font></a>
+            </div>
             <div class="col s6">
               <input class="with-gap" name="ModeOption" type="radio" id="ModeOptionSearch" value="search" checked="checked" />
-              <label for="ModeOptionSearch">搜尋</label>
+              <label for="ModeOptionSearch"><font size="6px">搜尋</font></label>
             </div>
             <div class="col s6">
               <input class="with-gap" name="ModeOption" type="radio" id="ModeOptionNavigate" value="navigate" />
-              <label for="ModeOptionNavigate">導航</label>
+              <label for="ModeOptionNavigate"><font size="6px">導航</font></label>
+            </div>
+
+            <div class="col s12">
+              <div class="progress">
+                <div class="indeterminate"></div>
+              </div>
             </div>
           </div>
         </div>
 
         <form action="#" id="Navigate" class="col s12">
-
+          <div class="input-field input-field-custom">
+            <div class="row">
+              <div class="col s12">
+                <a class="title-custom waves-effect waves-light btn btn-fab btn-fab-mini red"><i class="fa fa-random"></i><font size="4px">  導航</font></a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s9">
+    		        <input name="srch-term" id="srch-term" type="text" class="validate">
+    		        <label for="srch-term"><i class="material-icons">account_balance</i> Search</label> <!-- prefix -->
+              </div>
+              <div class="col s3">
+              </div>
+              <!-- <div class="col s12">
+                <span class="help-block"><code>Building you are looking for</code></span>
+              </div> -->
+            </div>
+            <div class="row">
+              <div class="col s9">
+    		        <input name="srch-term" id="srch-term" type="text" class="validate">
+    		        <label for="srch-term"><i class="material-icons">account_balance</i> Search</label> <!-- prefix -->
+              </div>
+              <div class="col s3">
+                <span class="input-group-btn">
+                  <!-- <a type="submit" class="waves-effect waves-light btn btn-fab btn-fab-mini"> -->
+                    <button type="submit" class="btn-floating btn-large waves-effect waves-light #4CAF50">
+                      <i class="material-icons">send</i>
+                    </button>
+                  <!-- </a> -->
+                </span>
+              </div>
+              <!-- <div class="col s12">
+                <span class="help-block"><code>Building you are looking for</code></span>
+              </div> -->
+            </div>
+            <div class="row">
+              <div class="col s12">
+                <a class="title-custom waves-effect waves-light btn btn-fab btn-fab-mini red"><i class="fa fa-rocket"></i><font size="4px">  交通</font></a>
+              </div>
+            </div>
+          </div>
         </form>
 
   		  <form action="#" id="Search" class="col s12">
 
           <div class="input-field input-field-custom">
             <div class="row">
-              <div class="col s8">
-    		        <input name="srch-term" id="srch-term" type="text" class="validate">
-    		        <label for="srch-term"><i style="color:red;" class="material-icons">account_balance</i> Search</label> <!-- prefix -->
+              <div class="col s12">
+                <a class="title-custom waves-effect waves-light btn btn-fab btn-fab-mini red"><i class="fa fa-search-plus"></i><font size="4px">  搜尋</font></a>
               </div>
-              <div class="col s4">
+            </div>
+            <div class="row">
+              <div class="col s9">
+    		        <input name="srch-term" id="srch-term" type="text" class="validate">
+    		        <label for="srch-term"><i class="material-icons">account_balance</i> Search</label> <!-- prefix -->
+              </div>
+              <div class="col s3">
                 <span class="input-group-btn">
-                  <!-- <a type="submit" class="waves-effect waves-light btn"> -->
-                    <button type="submit" class="waves-effect waves-light btn btn-fab btn-fab-mini">
+                  <!-- <a type="submit" class="waves-effect waves-light btn btn-fab btn-fab-mini"> -->
+                    <button type="submit" class="btn-floating btn-large waves-effect waves-light #4CAF50">
                       <i class="material-icons">send</i>
                     </button>
                   <!-- </a> -->
                 </span>
               </div>
-              <div class="col s12">
-                <span class="help-block"><code>Building you focus on</code></span>
-              </div>
+              <!-- <div class="col s12">
+                <span class="help-block"><code>Building you are looking for</code></span>
+              </div> -->
             </div>
 
             <div class="row">
               <div class="col s12">
-                <code><font size="16">探索</font></code>
+                <a class="title-custom waves-effect waves-light btn btn-fab btn-fab-mini red"><i class="fa fa-random"></i><font size="4px">  探索</font></a>
               </div>
               <div class="col s12">
                 <input type="checkbox" class="filled-in" id="filled-in-box1" />
-                <label for="filled-in-box1"><i style="color:#795548;" class="material-icons">queue_play_next</i> 行政單位</label>
+                <label for="filled-in-box1"><i style="color:#795548;" class="fa fa-file-text"></i>  行政單位</label>
               </div>
               <div class="col s12">
                 <input type="checkbox" class="filled-in" id="filled-in-box2" />
-                <label for="filled-in-box2"><i style="color:#E91E63;" class="material-icons">local_library</i> 教學單位</label>
+                <label for="filled-in-box2"><i style="color:#E91E63;" class="fa fa-book"></i> 教學單位</label>
               </div>
               <div class="col s12">
                 <input type="checkbox" class="filled-in" id="filled-in-box3" />
-                <label for="filled-in-box3"><i style="color:#4CAF50;" class="material-icons">home</i> 宿舍</label>
+                <label for="filled-in-box3"><i style="color:#4CAF50;" class="fa fa-home"></i> 宿舍</label>
               </div>
               <div class="col s12">
                 <input type="checkbox" class="filled-in" id="filled-in-box4" />
-                <label for="filled-in-box4"><i style="color:#673AB7;" class="material-icons">pan_tool</i> 服務空間</label>
+                <label for="filled-in-box4"><i style="color:#673AB7;" class="fa fa-thumbs-up"></i> 服務空間</label>
               </div>
               <div class="col s12">
                 <input type="checkbox" class="filled-in" id="filled-in-box5" />
-                <label for="filled-in-box5"><i style="color:#2196F3;" class="material-icons">directions_bike</i> 運動空間</label>
+                <label for="filled-in-box5"><i style="color:#2196F3;" class="fa fa-bicycle"></i> 運動空間</label>
               </div>
               <div class="col s12">
                 <input type="checkbox" class="filled-in" id="filled-in-box6" />
-                <label for="filled-in-box6"><i style="color:#F44336;" class="material-icons">directions_run</i> 休憩景點</label>
+                <label for="filled-in-box6"><i style="color:#F44336;" class="fa fa-tree"></i> 休憩景點</label>
               </div>
             </div>
   		    </div>
