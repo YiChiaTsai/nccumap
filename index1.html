@@ -26,6 +26,7 @@
       <!--Parameter: &v=3&amp;sensor=false&libraries=geometry,places&ext=.js -->
   <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerwithlabel/1.1.8/src/markerwithlabel.js"></script>
   <script type="text/javascript" src="./js/maplabel.js"></script>
+ 
   <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -156,30 +157,34 @@
       height: 100%;
     }
     /*.labels {
-      box-sizing : border-box;
-      box-shadow: 2px 2px 4px #333;
+      box-sizing : border-box;*/
+      /*background: #05F24C;*/
+      /*box-shadow: 2px 2px 4px #333;
       border: 3px solid #346FF7;
       height: 50px;
       width: 50px;
-      border-radius: 50px;
-      opacity :1;
-    }*/
+      border-radius: 50px;*/
+      /*opacity :1;*/
+      /*color: red;
+      background-color: white;
+      font-family: "Lucida Grande", "Arial", sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      text-align: center;
+      /*width: 40px;*/
+      /*border: 2px solid black;*/
+      /*white-space: nowrap;*/
+    }
   </style>
   <script type="text/javascript">
     var map;
     var marker;
-    
-    //var json = JSON.parse('map.json');
-    // console.log(json);
-    var json = $.getJSON( "map.json", function() {
-      console.log(json);
-});
-   
-    // console.log(json.responseJSON);
-
-
     var makersadmin = [], makersedu = [], makersdorm = [], makersservice = [], makerssport = [], makersattraction = [];
+    var buildmap = []
+
+    
     function initMap() {
+
       var myLatLng = {lat: 24.986592, lng: 121.575841};
       map = new google.maps.Map(document.getElementById('map'), {
         zoom: 17,
@@ -190,12 +195,17 @@
       // [START snippet]
       // Color each letter gray. Change the color when the isColorful property
       // is set to true.
-      
 
       map.data.setStyle(function(feature) {
         var fColor = 'gray', sColor = 'gray', fOpacity = 1.0, sOpacity = 1.0, sWeight = 1.0;
+        if(feature.getProperty('isColorful')) {
+          fColor = feature.getProperty('fill-color');
+          fOpacity = feature.getProperty('fill-opacity');
+          sColor = feature.getProperty('stroke-color');
+          sOpacity = feature.getProperty('stroke-opacity');
+          sWeight = feature.getProperty('stroke-weight');
+        }
 
-    
         //Generate marker label coordinately
         if( feature.getProperty('department') == "Administrations" ) {
           makersadmin.push( new MarkerWithLabel({
@@ -204,27 +214,42 @@
             draggable: false,
             raiseOnDrag: false,
             // animation: google.maps.Animation.DROP,
-            labelContent: feature.getProperty('buildingzh'),
+            // labelContent: pictureLabel,
             labelAnchor: new google.maps.Point(0, 0),
             labelClass: "labels", // the CSS class for the label
+            // labelStyle: {opacity :1},
             icon: " "
           }) );
         }
+
+
         var mapLabel = new MapLabel({
           text: feature.getProperty('buildingzh'),
           position: new google.maps.LatLng(feature.getProperty('center-lat'), feature.getProperty('center-lng')),
           map: map,
-          fontSize: 14,
-          align: 'center'
+          fontSize: 24,
+          align: 'center',
+          // labelClass:"labels",
+          // labelStyle:{opacity:1}
           // zIndex: 1
         });
-        if (feature.getProperty('isColorful')) {
-          fColor = feature.getProperty('fill-color');
-          fOpacity = feature.getProperty('fill-opacity');
-          sColor = feature.getProperty('stroke-color');
-          sOpacity = feature.getProperty('stroke-opacity');
-          sWeight = feature.getProperty('stroke-weight');
-        }
+
+        // var buildcenter = { lat: feature.getProperty('center-lat'), lng : feature.getProperty('center-lng') };
+        // //circle is the google.maps.Circle-instance
+        // var circle = new google.maps.Circle({
+        //   center: buildcenter,
+        //   strokeColor : feature.getProperty('fill-color'),
+        //   strokeOpacity: 1,
+        //   // strokeWeight:10,
+        //   // fillColor : '#FF0000',
+        //   fillOpacity: 0,
+        //   map: map,
+
+        //   radius : 30
+        // });
+        
+
+
         return /** @type {google.maps.Data.StyleOptions} */({
           fillColor: fColor,
           fillOpacity: fOpacity,
@@ -233,7 +258,9 @@
           strokeWeight: sWeight
           // zIndex: 2
         });
-      });
+
+        });
+        
       // var mapLabel = new MapLabel({
       //   text: 'RichardTsai',
       //   position: myLatLng,
@@ -241,6 +268,8 @@
       //   fontSize: 35,
       //   align: 'right'
       // });
+      // 
+
       marker = new MarkerWithLabel({
         position: myLatLng,
         map: map,
@@ -253,6 +282,8 @@
         icon: "http://maps.google.com/mapfiles/kml/paddle/blu-circle.png"
         // http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclusterer/1.0.2/
       });
+
+
       /**
        * addListener code block
        * click, mouseover, mouseout, etc.
@@ -272,12 +303,19 @@
         map.data.revertStyle();
         map.data.overrideStyle(event.feature, {strokeWeight: 3});
         map.data.overrideStyle(event.feature, {fillColor: "#FF0000"});
+
       });
+
       map.data.addListener('mouseout', function(event) {
         map.data.revertStyle();
       });
       // [END snippet]
+      // google.maps.event.addListener(marker , "mouseover" , function(){
+
+      // });
     }
+
+
     function placeMarkerAndPanTo(latLng, map) {
       marker.setMap(null);
       marker.setPosition(latLng);
@@ -344,7 +382,7 @@
 
     };
     $(document).ready(main);
-    // if (document.referrer == "http://cs.nccu.edu.tw/~s10117/NCCUMap/googlemapapi.html")
+    // if (document.referrer == "http://cs.nccu.edu.tw/~s10117/NCCUMap/googlemapapi.html#")
     //   window.location.reload();
   </script>
 </head>
