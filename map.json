@@ -13,8 +13,8 @@
         "department": "Administrations",
         "buildingen": "Main Library",
         "buildingzh": "中正圖書館",
-        "center-lng": 121.576428,
-        "center-lat": 24.985869
+        "centerlng": 121.576428,
+        "centerlat": 24.985869
       },
       "geometry": {
         "type": "Polygon",
@@ -120,8 +120,8 @@
         "department": "Administrations",
         "buildingen": "Computer Center",
         "buildingzh": "電子計算機中心",
-        "center-lng": 121.574857,
-        "center-lat": 24.986979
+        "centerlng": 121.574857,
+        "centerlat": 24.986979
       },
       "geometry": {
         "type": "Polygon",
@@ -144,8 +144,8 @@
         "department": "Administrations",
         "buildingen": "Administration Building",
         "buildingzh": "行政大樓",
-        "center-lng": 121.575093,
-        "center-lat": 24.986147
+        "centerlng": 121.575093,
+        "centerlat": 24.986147
       },
       "geometry": {
         "type": "Polygon",
@@ -171,8 +171,8 @@
         "department": "Administrations",
         "buildingen": "Security Office",
         "buildingzh": "駐警隊",
-        "center-lng": 121.575911,
-        "center-lat": 24.987380
+        "centerlng": 121.575911,
+        "centerlat": 24.987380
       },
       "geometry": {
         "type": "Polygon",
@@ -195,8 +195,8 @@
         "department": "Administrations",
         "buildingen": "Mail Services",
         "buildingzh": "收發室",
-        "center-lng": 121.576118,
-        "center-lat": 24.987339
+        "centerlng": 121.576118,
+        "centerlat": 24.987339
       },
       "geometry": {
         "type": "Polygon",
@@ -219,8 +219,8 @@
         "department": "Administrations",
         "buildingen": "Health Center",
         "buildingzh": "健康中心",
-        "center-lng": 121.576489,
-        "center-lat": 24.987679
+        "centerlng": 121.576489,
+        "centerlat": 24.987679
       },
       "geometry": {
         "type": "Polygon",
@@ -243,8 +243,8 @@
         "department": "Administrations",
         "buildingen": "Social Sciences Information Center",
         "buildingzh": "社會科學資料中心",
-        "center-lng": 121.578891,
-        "center-lat": 24.985822
+        "centerlng": 121.578891,
+        "centerlat": 24.985822
       },
       "geometry": {
         "type": "Polygon",
@@ -267,8 +267,8 @@
         "department": "Education",
         "buildingen": "Jing Tang Building",
         "buildingzh": "井塘樓",
-        "center-lng": 121.578350,
-        "center-lat": 24.985580
+        "centerlng": 121.578350,
+        "centerlat": 24.985580
       },
       "geometry": {
         "type": "Polygon",
@@ -291,8 +291,8 @@
         "department": "Education",
         "buildingen": "Xue Si Building",
         "buildingzh": "學思樓",
-        "center-lng": 0,
-        "center-lat": 0
+        "centerlng": 0,
+        "centerlat": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -315,8 +315,8 @@
         "department": "Education",
         "buildingen": "Yi Xian Building",
         "buildingzh": "逸仙樓",
-        "center-lng": 0,
-        "center-lat": 0
+        "centerlng": 0,
+        "centerlat": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -339,8 +339,8 @@
         "department": "Education",
         "buildingen": "Xue Si Building",
         "buildingzh": "學思樓",
-        "center-lng": 121.576944,
-        "center-lat": 24.987217
+        "centerlng": 121.576944,
+        "centerlat": 24.987217
       },
       "geometry": {
         "type": "Polygon",
@@ -363,8 +363,8 @@
         "department": "Education",
         "buildingen": "Yi Xian Building",
         "buildingzh": "逸仙樓",
-        "center-lng": 121.576904,
-        "center-lat": 24.986857
+        "centerlng": 121.576904,
+        "centerlat": 24.986857
       },
       "geometry": {
         "type": "Polygon",
@@ -387,8 +387,8 @@
         "department": "Education",
         "buildingen": "Zhi Xi Building",
         "buildingzh": "志希樓",
-        "center-lng": 121.576238,
-        "center-lat": 24.986838
+        "centerlng": 121.576238,
+        "centerlat": 24.986838
       },
       "geometry": {
         "type": "Polygon",
@@ -411,8 +411,8 @@
         "department": "Education",
         "buildingen": "Guo Fu Building",
         "buildingzh": "果夫樓",
-        "center-lng": 121.575630,
-        "center-lat": 24.986947
+        "centerlng": 121.575630,
+        "centerlat": 24.986947
       },
       "geometry": {
         "type": "Polygon",
@@ -435,8 +435,8 @@
         "department": "Education",
         "buildingen": "Information Building",
         "buildingzh": "資訊大樓",
-        "center-lng": 121.575115,
-        "center-lat": 24.987192
+        "centerlng": 121.575115,
+        "centerlat": 24.987192
       },
       "geometry": {
         "type": "Polygon",
@@ -459,8 +459,8 @@
         "department": "Education",
         "buildingen": "Journalism Building",
         "buildingzh": "新聞館",
-        "center-lng": 121.574287,
-        "center-lat": 24.987019
+        "centerlng": 121.574287,
+        "centerlat": 24.987019
       },
       "geometry": {
         "type": "Polygon",
@@ -483,8 +483,8 @@
         "department": "Education",
         "buildingen": "Da Zhi Building",
         "buildingzh": "大智樓",
-        "center-lng": 121.573621,
-        "center-lat": 24.987523
+        "centerlng": 121.573621,
+        "centerlat": 24.987523
       },
       "geometry": {
         "type": "Polygon",
@@ -507,8 +507,8 @@
         "department": "Education",
         "buildingen": "Da Zhi Building",
         "buildingzh": "大智樓",
-        "center-lng": 0,
-        "center-lat": 0
+        "centerlng": 0,
+        "centerlat": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -531,8 +531,8 @@
         "department": "Education",
         "buildingen": "Da Ren Building",
         "buildingzh": "大仁樓",
-        "center-lng": 121.573576,
-        "center-lat": 24.987275
+        "centerlng": 121.573576,
+        "centerlat": 24.987275
       },
       "geometry": {
         "type": "Polygon",
@@ -555,8 +555,8 @@
         "department": "Education",
         "buildingen": "Da Yong Building",
         "buildingzh": "大勇樓",
-        "center-lng": 121.573665,
-        "center-lat": 24.986758
+        "centerlng": 121.573665,
+        "centerlat": 24.986758
       },
       "geometry": {
         "type": "Polygon",
@@ -579,8 +579,8 @@
         "department": "Education",
         "buildingen": "Research Building",
         "buildingzh": "研究大樓",
-        "center-lng": 121.576481,
-        "center-lat": 24.987275
+        "centerlng": 121.576481,
+        "centerlat": 24.987275
       },
       "geometry": {
         "type": "Polygon",
@@ -609,8 +609,8 @@
         "department": "Education",
         "buildingen": "College of Commerce",
         "buildingzh": "商學院",
-        "center-lng": 0,
-        "center-lat": 0
+        "centerlng": 0,
+        "centerlat": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -633,8 +633,8 @@
         "department": "Education",
         "buildingen": "General Building of Colleges",
         "buildingzh": "綜合院館",
-        "center-lng": 0,
-        "center-lat": 0
+        "centerlng": 0,
+        "centerlat": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -660,8 +660,8 @@
         "department": "Dormitories",
         "buildingen": "Zhuang Jing Dormitory No.1",
         "buildingzh": "莊敬一舍",
-        "center-lng": 0,
-        "center-lat": 0
+        "centerlng": 0,
+        "centerlat": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -684,8 +684,8 @@
         "department": "Dormitories",
         "buildingen": "Zhuang Jing Dormitory No.2",
         "buildingzh": "莊敬二舍",
-        "center-lng": 121.577637,
-        "center-lat": 24.987128
+        "centerlng": 121.577637,
+        "centerlat": 24.987128
       },
       "geometry": {
         "type": "Polygon",
@@ -708,8 +708,8 @@
         "department": "Dormitories",
         "buildingen": "Zhuang Jing Dormitory No.3",
         "buildingzh": "莊敬三舍",
-        "center-lng": 0,
-        "center-lat": 0
+        "centerlng": 0,
+        "centerlat": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -732,8 +732,8 @@
         "department": "Dormitories",
         "buildingen": "Zhuang Jing Dormitory No.4~8",
         "buildingzh": "莊敬外舍 (4~8)",
-        "center-lng": 0,
-        "center-lat": 0
+        "centerlng": 0,
+        "centerlat": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -756,8 +756,8 @@
         "department": "Dormitories",
         "buildingen": "Zhuang Jing Dormitory No.9",
         "buildingzh": "莊敬九舍",
-        "center-lng": 0,
-        "center-lat": 0
+        "centerlng": 0,
+        "centerlat": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -780,8 +780,8 @@
         "department": "Dormitories",
         "buildingen": "Mei Yuan Residence Hall",
         "buildingzh": "玫苑",
-        "center-lng": 0,
-        "center-lat": 0
+        "centerlng": 0,
+        "centerlat": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -804,8 +804,8 @@
         "department": "Services",
         "buildingen": "Qi Xian Building",
         "buildingzh": "憩賢樓",
-        "center-lng": 0,
-        "center-lat": 0
+        "centerlng": 0,
+        "centerlat": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -828,8 +828,8 @@
         "department": "Services",
         "buildingen": "Alumni Center",
         "buildingzh": "校友服務中心",
-        "center-lng": 121.575711,
-        "center-lat": 24.987445
+        "centerlng": 121.575711,
+        "centerlat": 24.987445
       },
       "geometry": {
         "type": "Polygon",
@@ -852,8 +852,8 @@
         "department": "Services",
         "buildingen": "Feng Yu Building",
         "buildingzh": "風雩樓",
-        "center-lng": 0,
-        "center-lat": 0
+        "centerlng": 0,
+        "centerlat": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -876,8 +876,8 @@
         "department": "Services",
         "buildingen": "Si Wei Hall",
         "buildingzh": "四維堂",
-        "center-lng": 121.575699,
-        "center-lat": 24.986021
+        "centerlng": 121.575699,
+        "centerlat": 24.986021
       },
       "geometry": {
         "type": "Polygon",
@@ -900,8 +900,8 @@
         "department": "Services",
         "buildingen": "Student Club Center",
         "buildingzh": "樂活館",
-        "center-lng": 0,
-        "center-lat": 0
+        "centerlng": 0,
+        "centerlat": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -924,8 +924,8 @@
         "department": "Sports",
         "buildingen": "Gymnasium",
         "buildingzh": "體育館",
-        "center-lng": 0,
-        "center-lat": 0
+        "centerlng": 0,
+        "centerlat": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -954,8 +954,8 @@
         "department": "Sports",
         "buildingen": "Swimming Pool",
         "buildingzh": "游泳館",
-        "center-lng": 0,
-        "center-lat": 0
+        "centerlng": 0,
+        "centerlat": 0
       },
       "geometry": {
         "type": "Polygon",
@@ -978,8 +978,8 @@
         "department": "Attractions",
         "buildingen": "Ba Jiao Pavillion",
         "buildingzh": "八角亭",
-        "center-lng": 0,
-        "center-lat": 0
+        "centerlng": 0,
+        "centerlat": 0
       },
       "geometry": {
         "type": "Polygon",
