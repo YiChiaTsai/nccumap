@@ -15,14 +15,16 @@
   <!-- Material Design fonts -->
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <!-- Bootstrap Material Design -->
   <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.0/css/bootstrap-material-design.min.css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.5.0/css/ripples.min.css"> -->
   <!-- Compiled and minified CSS -->
   <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css"> -->
 
-  <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPVS-hEVThEv2Yj4oTJfWIeNNdE3TZZoI&signed_in=true"></script>
+  
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
       <!--Parameter: &v=3&amp;sensor=false&libraries=geometry,places&ext=.js -->
   <script type="text/javascript" src="http://google-maps-utility-library-v3.googlecode.com/svn/tags/markerwithlabel/1.1.8/src/markerwithlabel.js"></script>
   <script type="text/javascript" src="./js/maplabel.js"></script>
@@ -30,6 +32,7 @@
   <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.min.js"></script> -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
   <!-- Compiled and minified JavaScript -->
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script> -->
   <!-- Twitter Bootstrap -->
@@ -176,11 +179,35 @@
       /*white-space: nowrap;*/
     }
   </style>
+
   <script type="text/javascript">
     var map;
     var marker;
     var makersadmin = [], makersedu = [], makersdorm = [], makersservice = [], makerssport = [], makersattraction = [];
+    
+    var overlay;
+
+    USGSOverlay.prototype = new google.maps.OverlayView();
+
     var buildmap = []
+      $.getJSON("http://yichiatsai.github.io/nccumap/map.json", function(json) {
+      //console.log(json.feature); // this will show the info it in firebug console
+      
+       for (var i in json.features) {
+            var ct_lat = json.features[i].properties.centerlat;
+            var ct_lng = json.features[i].properties.centerlng;
+            var sw_lat = new google.maps.LatLng(ct_lat - 0.01);
+            var sw_lng = new google.maps.LatLng(ct_lng - 0.01);
+            var ne_lat = new google.maps.LatLng(ct_lat + 0.01);
+            var ne_lng = new google.maps.LatLng(ct_lng + 0.01);
+
+            var ct = new google.maps.LatLngBounds( (sw_lat , sw_lng) ,(ne_lat , ne_lng) );
+
+
+            buildmap.push(ct);
+            //console.log(buildmap);
+        }
+    });
 
     
     function initMap() {
@@ -209,7 +236,7 @@
         //Generate marker label coordinately
         if( feature.getProperty('department') == "Administrations" ) {
           makersadmin.push( new MarkerWithLabel({
-            position: {lat: feature.getProperty('center-lat'), lng: feature.getProperty('center-lng')},
+            position: {lat: feature.getProperty('centerlat'), lng: feature.getProperty('centerlng')},
             map: map,
             draggable: false,
             raiseOnDrag: false,
@@ -225,7 +252,7 @@
 
         var mapLabel = new MapLabel({
           text: feature.getProperty('buildingzh'),
-          position: new google.maps.LatLng(feature.getProperty('center-lat'), feature.getProperty('center-lng')),
+          position: new google.maps.LatLng(feature.getProperty('centerlat'), feature.getProperty('centerlng')),
           map: map,
           fontSize: 24,
           align: 'center',
@@ -313,7 +340,92 @@
       // google.maps.event.addListener(marker , "mouseover" , function(){
 
       // });
+      
+      for (var i=1; i<=buildmap.length; i++)
+      {
+          overlay = new USGSOverlay(buildmap[i-1], "123.jpg", map);
+          //console.log(buildmap);
+      }
+
     }
+    function USGSOverlay(bounds, image, map) {
+
+        // Now initialize all properties.
+        this.bounds_ = bounds;
+        this.image_ = image;
+        this.map_ = map;
+
+        // We define a property to hold the image's div. We'll
+        // actually create this div upon receipt of the onAdd()
+        // method so we'll leave it null for now.
+        this.div_ = null;
+        console.log(this.image_);
+        //console.log(this.bounds_);
+        // Explicitly call setMap on this overlay
+        this.setMap(map);
+      }
+      USGSOverlay.prototype.onAdd = function() {
+
+        // Note: an overlay's receipt of onAdd() indicates that
+        // the map's panes are now available for attaching
+        // the overlay to the map via the DOM.
+
+        // Create the DIV and set some basic attributes.
+        var div = document.createElement('div');
+        div.className = "hello";
+        div.style.border = 'solid';
+        div.style.borderWidth = '12px';
+        div.style.position = 'absolute';
+        //div.style.rgba(245,255,0,.5);
+
+        // Create an IMG element and attach it to the DIV.
+        var img = document.createElement('img');
+        img.src = this.image_;
+        img.style.width = '100%';
+        img.style.height = '100%';
+        //img.style.position = 'absolute';
+        div.appendChild(img);
+
+        // Set the overlay's div_ property to this DIV
+        this.div_ = div;
+
+        // We add an overlay to a map via one of the map's panes.
+        // We'll add this overlay to the overlayLayer pane.
+        var panes = this.getPanes();
+        panes.overlayLayer.appendChild(div);
+      }
+
+      USGSOverlay.prototype.draw = function() {
+
+        // Size and position the overlay. We use a southwest and northeast
+        // position of the overlay to peg it to the correct position and size.
+        // We need to retrieve the projection from this overlay to do this.
+        var overlayProjection = this.getProjection();
+
+        // Retrieve the southwest and northeast coordinates of this overlay
+        // in latlngs and convert them to pixels coordinates.
+        // We'll use these coordinates to resize the DIV.
+        console.log(this.bounds_);
+        console.log(this.bounds_.getSouthWest());
+        console.log(this.bounds_.getNorthEast());
+        
+        var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
+        var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
+        // console.log(sw , ne);
+
+        // Resize the image's DIV to fit the indicated dimensions.
+        var div = this.div_;
+        div.style.left = sw.x + 'px';
+        div.style.top = ne.y + 'px';
+        div.style.width = (ne.x - sw.x) + 'px';
+        div.style.height = (sw.y - ne.y) + 'px';
+        
+      }
+
+      USGSOverlay.prototype.onRemove = function() {
+        this.div_.parentNode.removeChild(this.div_);
+        this.div_ = null;
+      }
 
 
     function placeMarkerAndPanTo(latLng, map) {
