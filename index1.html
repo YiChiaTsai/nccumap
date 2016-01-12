@@ -178,6 +178,7 @@
       /*border: 2px solid black;*/
       /*white-space: nowrap;*/
     }
+
   </style>
 
   <script type="text/javascript">
@@ -196,13 +197,13 @@
        for (var i in json.features) {
             var ct_lat = json.features[i].properties.centerlat;
             var ct_lng = json.features[i].properties.centerlng;
-            var sw_lat = new google.maps.LatLng(ct_lat - 0.01);
-            var sw_lng = new google.maps.LatLng(ct_lng - 0.01);
-            var ne_lat = new google.maps.LatLng(ct_lat + 0.01);
-            var ne_lng = new google.maps.LatLng(ct_lng + 0.01);
 
-            var ct = new google.maps.LatLngBounds( (sw_lat , sw_lng) ,(ne_lat , ne_lng) );
+            var sw = new google.maps.LatLng(ct_lat - 0.0003 ,ct_lng - 0.0003 );
+            var ne = new google.maps.LatLng(ct_lat + 0.0003 ,ct_lng + 0.0003);
 
+            var ct = new google.maps.LatLngBounds( sw , ne );
+
+            // console.log(ct)
 
             buildmap.push(ct);
             //console.log(buildmap);
@@ -343,7 +344,7 @@
       
       for (var i=1; i<=buildmap.length; i++)
       {
-          overlay = new USGSOverlay(buildmap[i-1], "123.jpg", map);
+          overlay = new USGSOverlay(buildmap[i-1], "", map);
           //console.log(buildmap);
       }
 
@@ -359,7 +360,7 @@
         // actually create this div upon receipt of the onAdd()
         // method so we'll leave it null for now.
         this.div_ = null;
-        console.log(this.image_);
+        
         //console.log(this.bounds_);
         // Explicitly call setMap on this overlay
         this.setMap(map);
@@ -374,15 +375,34 @@
         var div = document.createElement('div');
         div.className = "hello";
         div.style.border = 'solid';
-        div.style.borderWidth = '12px';
+        div.style.borderWidth = '8px';
+        div.style.borderRadius = '99em';
         div.style.position = 'absolute';
-        //div.style.rgba(245,255,0,.5);
+        div.style.color = "#ff0000";
+        // div.style.hover {color : #ffffff};
+        
+        var head = document.getElementsByTagName('head')[0];
+        var style = document.createElement('style');
+        var declarations = document.createTextNode('.hello:hover { borderWidth:19px }');
+
+        style.type = 'text/css';
+
+        if (style.styleSheet) {
+          style.styleSheet.cssText = declarations.nodeValue;
+        } else {
+          style.appendChild(declarations);
+        }
+
+        head.appendChild(style);
 
         // Create an IMG element and attach it to the DIV.
         var img = document.createElement('img');
         img.src = this.image_;
         img.style.width = '100%';
         img.style.height = '100%';
+
+        
+        
         //img.style.position = 'absolute';
         div.appendChild(img);
 
@@ -405,12 +425,13 @@
         // Retrieve the southwest and northeast coordinates of this overlay
         // in latlngs and convert them to pixels coordinates.
         // We'll use these coordinates to resize the DIV.
-        console.log(this.bounds_);
-        console.log(this.bounds_.getSouthWest());
-        console.log(this.bounds_.getNorthEast());
-        
+        //console.log(this.bounds_);
+        // console.log(this.bounds_.getSouthWest());
+        // console.log(this.bounds_.getNorthEast());
+
         var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
         var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
+
         // console.log(sw , ne);
 
         // Resize the image's DIV to fit the indicated dimensions.
@@ -486,12 +507,16 @@
       });
       $('#reload1').click(function() {
         window.location.reload();
+        alert("reload 1 works");
       });
       $('#reload2').click(function() {
         window.location.reload();
       });
-
-
+      // $('.hello').hover(function(){
+      //   alert("hover works");
+      //   $( this ).fadeOut( 100 );
+      //   $( this ).fadeIn( 500 );
+      // });
     };
     $(document).ready(main);
     // if (document.referrer == "http://cs.nccu.edu.tw/~s10117/NCCUMap/googlemapapi.html#")
