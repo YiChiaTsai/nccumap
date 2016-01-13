@@ -22,8 +22,6 @@
   <!-- Compiled and minified CSS -->
   <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css"> -->
 
-  <link rel='stylesheet' href="css/map.css" type='text/css' media='all' />
-
   <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
       <!--Parameter: &v=3&amp;sensor=false&libraries=geometry,places&ext=.js -->
@@ -48,7 +46,6 @@
     $.material.checkbox();
     $.material.radio();
   </script> -->
-
   <style type="text/css">
     /* Initial body */
     body {
@@ -160,6 +157,22 @@
     div#map {
       height: 100%;
     }
+    /*div.hello{
+      cursor:pointer;
+      -webkit-border-radius:100%;
+      -moz-border-radius:100%;
+      border-radius:100%;
+      -moz-background-clip:padding;
+      -webkit-background-clip:padding-box;
+      background-clip:padding-box;
+      position:absolute;
+      -webkit-transform:scale(0.9);
+      transform-origin:center center;
+      -webkit-transition:all .1s ease-in-out;transition:all .1s ease-in-out;
+      -webkit-box-sizing:border-box;
+      -moz-box-sizing:border-box;
+      box-sizing:border-box;
+    }*/
     /*.labels {
       box-sizing : border-box;*/
       /*background: #05F24C;*/
@@ -377,13 +390,38 @@
         var div = document.createElement('div');
         div.className = "hello";
         div.style.border = 'solid';
-        div.style.borderWidth = '8px';
+        div.style.borderWidth = '20px';
         div.style.borderRadius = '99em';
         div.style.position = 'absolute';
         div.style.color = "#ff0000";
-        div.style.opacity = 0.5;
-        
+        div.style.opacity = 0.0;
+        // div.style.webkitBorderStartColor = "yellow";
+        // div.style.webkitBorderEndColor = "blue";
+        // div.style.webkitBorderEndWidth = "2px";
+        // div.style.webkitBorderBeforeWidth = "10px";
+        // div.style.transition = "all 10s ease-in-out";
+        div.onmouseover = function(){
+          div.style.opacity = 0.5;
+        }
+        div.onmouseout = function(){
+          div.style.opacity = 0.0;
+        }
 
+        //div.cursor = pointer;
+        // div.webkitborderradius = 100%;
+        // div.-moz-border-radius = 100%;
+        // div.border-radius = 100%;
+        // div.-webkit-background-clip = padding-box;
+        // div.background-clip = padding-box;
+        // div.position:absolute;
+        // div.-webkit-transform = scale(0.9);
+        // div.transform-origin = center center;
+        // div.-webkit-transition = all .1s ease-in-out;
+        // transition = all .1s ease-in-out;
+        // div. -webkit-box-sizing = border-box;
+      // -moz-box-sizing:border-box;
+        // div.box-sizing = border-box;
+        
         // div.style.hover {color : #ffffff};
         
         // var head = document.getElementsByTagName('head')[0];
@@ -417,7 +455,7 @@
         // We add an overlay to a map via one of the map's panes.
         // We'll add this overlay to the overlayLayer pane.
         var panes = this.getPanes();
-        panes.overlayLayer.appendChild(div);
+        panes.overlayImage.appendChild(div);
       }
 
       USGSOverlay.prototype.draw = function() {
@@ -452,6 +490,7 @@
         this.div_.parentNode.removeChild(this.div_);
         this.div_ = null;
       }
+
 
 
     function placeMarkerAndPanTo(latLng, map) {
@@ -525,6 +564,10 @@
     // if (document.referrer == "http://cs.nccu.edu.tw/~s10117/NCCUMap/googlemapapi.html#")
     //   window.location.reload();
   </script>
+
+  
+
+
 </head>
 
 <body onload="initMap()">
