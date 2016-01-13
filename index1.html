@@ -22,7 +22,8 @@
   <!-- Compiled and minified CSS -->
   <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/css/materialize.min.css"> -->
 
-  
+  <link rel='stylesheet' href="css/map.css" type='text/css' media='all' />
+
   <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
       <!--Parameter: &v=3&amp;sensor=false&libraries=geometry,places&ext=.js -->
@@ -182,6 +183,7 @@
   </style>
 
   <script type="text/javascript">
+
     var map;
     var marker;
     var makersadmin = [], makersedu = [], makersdorm = [], makersservice = [], makerssport = [], makersattraction = [];
@@ -379,32 +381,35 @@
         div.style.borderRadius = '99em';
         div.style.position = 'absolute';
         div.style.color = "#ff0000";
+        div.style.opacity = 0.5;
+        
+
         // div.style.hover {color : #ffffff};
         
-        var head = document.getElementsByTagName('head')[0];
-        var style = document.createElement('style');
-        var declarations = document.createTextNode('.hello:hover { borderWidth:19px }');
+        // var head = document.getElementsByTagName('head')[0];
+        // var style = document.createElement('style');
+        // var declarations = document.createTextNode('li :hover{ background-color: yellow; }');
 
-        style.type = 'text/css';
+        // style.type = 'text/css';
 
-        if (style.styleSheet) {
-          style.styleSheet.cssText = declarations.nodeValue;
-        } else {
-          style.appendChild(declarations);
-        }
+        // if (style.styleSheet) {
+        //   style.styleSheet.cssText = declarations.nodeValue;
+        // } else {
+        //   style.appendChild(declarations);
+        // }
 
-        head.appendChild(style);
+        // head.appendChild(style);
 
         // Create an IMG element and attach it to the DIV.
-        var img = document.createElement('img');
-        img.src = this.image_;
-        img.style.width = '100%';
-        img.style.height = '100%';
+        // var img = document.createElement('img');
+        // img.src = this.image_;
+        // img.style.width = '100%';
+        // img.style.height = '100%';
 
         
         
         //img.style.position = 'absolute';
-        div.appendChild(img);
+        // div.appendChild(img);
 
         // Set the overlay's div_ property to this DIV
         this.div_ = div;
@@ -505,6 +510,8 @@
           left: "0px"
         }, 200);
       });
+
+
       $('#reload1').click(function() {
         window.location.reload();
         alert("reload 1 works");
@@ -512,11 +519,7 @@
       $('#reload2').click(function() {
         window.location.reload();
       });
-      // $('.hello').hover(function(){
-      //   alert("hover works");
-      //   $( this ).fadeOut( 100 );
-      //   $( this ).fadeIn( 500 );
-      // });
+      
     };
     $(document).ready(main);
     // if (document.referrer == "http://cs.nccu.edu.tw/~s10117/NCCUMap/googlemapapi.html#")
